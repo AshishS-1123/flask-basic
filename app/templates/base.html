@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+    <head><title>Some Title</title></head>
+    <body>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        <h1>Main Application</h1>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('login') }}">Login</a>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>
